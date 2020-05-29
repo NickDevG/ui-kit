@@ -6,20 +6,19 @@ import { filterDataAttributes } from '@commercetools-uikit/utils';
 import { getTextareaStyles } from './multiline-input.styles';
 
 const MIN_ROW_COUNT = 1;
+const MIN_INPUT_HEIGHT = 32;
 
 const MultilineInput = (props) => {
-  // Keep a ref to the underlying textarea element.
-  const ref = React.useRef();
   const { onHeightChange } = props;
   const handleHeightChange = React.useCallback(
     (height) => {
-      onHeightChange(height, ref.current);
+      const rowCount = height % MIN_INPUT_HEIGHT;
+      onHeightChange(height, rowCount);
     },
     [onHeightChange]
   );
   return (
     <TextareaAutosize
-      ref={ref}
       name={props.name}
       type="text"
       autoComplete={props.autoComplete}

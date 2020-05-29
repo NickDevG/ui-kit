@@ -38,8 +38,8 @@ const TranslationInput = (props) => {
   );
 
   const handleHeightChange = React.useCallback(
-    (_, elementRef) => {
-      setContentRowCount(elementRef.valueRowCount);
+    (_, rowCount) => {
+      setContentRowCount(rowCount);
     },
     [setContentRowCount]
   );
