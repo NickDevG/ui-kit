@@ -99,6 +99,14 @@ const getButtonStyles = (isDisabled, isActive, tone, size) => {
       &:active {
         box-shadow: ${vars.shadow9};
       }
+      &:focus-within {
+        & > span {
+          outline-width: thin;
+          outline-style: dotted;
+          outline-offset: ${vars.spacingXs};
+        }
+        background-color: ${vars.colorPrimary25};
+      }
     `,
   ];
   switch (tone) {
